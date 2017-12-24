@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Track renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Track
+    length={0}
+    talks={
+        Array [
+            <Talk
+              length={10}
+              lengthtext="lengthtext"
+              title="title"
+        />,
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        "Track: ",
+        undefined,
+        <Morning
+          talks={
+                    Array [
+                              <Talk
+                                length={10}
+                                lengthtext="lengthtext"
+                                title="title"
+                    />,
+                            ]
+          }
+/>,
+        <Talk
+          className="lunch"
+          spentTime={180}
+          title="Lunch"
+/>,
+        <Afternoon
+          talks={Array []}
+/>,
+      ],
+      "className": "track",
+    },
+    "ref": null,
+    "rendered": Array [
+      "Track: ",
+      undefined,
+      Object {
+        "instance": null,
+        "key": "morning",
+        "nodeType": "class",
+        "props": Object {
+          "talks": Array [
+            <Talk
+              length={10}
+              lengthtext="lengthtext"
+              title="title"
+/>,
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "className": "lunch",
+          "spentTime": 180,
+          "title": "Lunch",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "afternoon",
+        "nodeType": "class",
+        "props": Object {
+          "talks": Array [],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          "Track: ",
+          undefined,
+          <Morning
+            talks={
+                        Array [
+                                    <Talk
+                                      length={10}
+                                      lengthtext="lengthtext"
+                                      title="title"
+                        />,
+                                  ]
+            }
+/>,
+          <Talk
+            className="lunch"
+            spentTime={180}
+            title="Lunch"
+/>,
+          <Afternoon
+            talks={Array []}
+/>,
+        ],
+        "className": "track",
+      },
+      "ref": null,
+      "rendered": Array [
+        "Track: ",
+        undefined,
+        Object {
+          "instance": null,
+          "key": "morning",
+          "nodeType": "class",
+          "props": Object {
+            "talks": Array [
+              <Talk
+                length={10}
+                lengthtext="lengthtext"
+                title="title"
+/>,
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "lunch",
+            "spentTime": 180,
+            "title": "Lunch",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "afternoon",
+          "nodeType": "class",
+          "props": Object {
+            "talks": Array [],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
