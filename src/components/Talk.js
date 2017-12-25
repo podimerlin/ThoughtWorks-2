@@ -8,6 +8,7 @@ class Talk extends Component {
         this.state = { ...props, time: initDate };                
     }
 
+    // add minutes to 9am and display a 12 hour time string
     changeStringToTime(time, mins) {
       mins = typeof this.props.length === 'undefined' ? mins : mins - this.props.length;
       time = new Date(time.getTime() + mins*60000);

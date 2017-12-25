@@ -35,6 +35,7 @@ class Track extends Component {
     );
   }
 
+  //split tracks to morning or afternoon
   splitTracks() {
     //morning only fit max 180
     this.props.talks.forEach((talk) => {      

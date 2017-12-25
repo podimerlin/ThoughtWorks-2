@@ -16,21 +16,28 @@ class App extends Component {
 
     }
 
+    // add talks into an array from the uploaded file
     addTalks = (inputData) => {
         const arrayOfLines = inputData.match(/[^\r\n]+/g);
     
-        const talks = arrayOfLines.map((line, counter) => {
-            counter += 1;
+        const talks = arrayOfLines.reduce((ret, line, counter) => {
+            try {
+              var words = line.split(/([ ])/);
+              var lengthtext = words[words.length-1];
+              var length = lengthtext === 'lightning' ? 5 : parseInt(lengthtext.split(/(min)/)[0], 10);
+              if (isNaN(length)) {
+                throw "not integer";
+              }
+              var title = line.slice(0, line.length - lengthtext.length);
+              counter += 1;
+              ret.push(<Talk key={counter} id={counter} title={title} length={length} lengthtext={lengthtext} />);
+            } catch (e) {
+              //invalid line input
+            }
 
-            var words = line.split(/([ ])/);
-            var lengthtext = words[words.length-1];
-            var length = lengthtext === 'lightning' ? 5 : parseInt(lengthtext.split(/(min)/)[0], 10);
-            var title = line.slice(0, line.length - lengthtext.length);
+            return ret;
+        }, [])
 
-            return ( <Talk key={counter} id={counter} title={title} length={length} lengthtext={lengthtext} />);
-        })
-
-        this.setState({talks});
         this.remainingTalks = talks;
         
         while(this.remainingTalks.length > 0) {
@@ -40,9 +47,11 @@ class App extends Component {
         //evenly distribute the last splittedTalk array
         var lastSplittedTalk = this.splittedTalks.pop();
         this.appendToExisting(lastSplittedTalk.arrayOfTalks);
-        this.setState({tracks : this.splittedTalks});
+        this.setState({tracks : this.splittedTalks});        
+
     }
 
+    // try to fit more talks to an existing tracklist
     appendToExisting(arr) {
         this.splittedTalks.forEach((item) => {
           var newArr = [];
@@ -63,6 +72,7 @@ class App extends Component {
         }
     }
 
+    // split the talks so that will end before 4pm
     splitTalks() {
       var x = {arrayOfTalks: [], length: 360};
       this.remainingTalks.forEach((talk) => {
@@ -80,14 +90,8 @@ class App extends Component {
       return x;
     }
 
-    removeTalkFromList = (talkid) => {
-      const talks = this.remainingTalks.filter(talk => talk.key !== talkid);
-      this.remainingTalks = talks;
-    }
-
     render() {
         const addTalks = inputData => {this.addTalks(inputData)};
-
         return (
             <div>
                 <h2>Conference Track Management</h2>

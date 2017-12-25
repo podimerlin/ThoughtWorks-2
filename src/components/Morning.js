@@ -8,7 +8,8 @@ class Morning extends Component {
     this.spendTime =  0; //max 180
   }
 
-  render() {    
+  render() {
+    this.spendTime = 0;
     if (this.props.talks.length === 0) {
       return (
         <div>

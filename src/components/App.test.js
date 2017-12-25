@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import UploadForm from './UploadForm';
 
 const app = shallow(<App />);
 
@@ -15,14 +14,20 @@ describe('App', () => {
       expect(app.state().tracks.length).toEqual(0);
     })
 
-    const input = 'Writing Fast Tests Against Enterprise Rails 60min';
+    const input = 'First Title 60min\nSecond Title 180min';
 
     describe('when text file is uploaded', () => {
       beforeEach(() => {
         app.instance().addTalks(input);
       })
 
-      it('track is created', () => {
+      afterEach(() => {
+        app.setState({ tracks: [] });
+        app.instance().remainingTalks = [];
+        app.instance().splittedTalks = [];
+      })
+
+      it('tracks list is at least 1', () => {
         expect(app.state().tracks.length).toBeGreaterThan(0);
       })
 

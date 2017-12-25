@@ -19,7 +19,7 @@ describe('UploadForm', () => {
         expect(form).toMatchSnapshot();
     });
 
-    it('initialize the `state` with an empty file', () => {
+    it('initialize the `state` with a null file', () => {
         expect(form.state().file).toEqual(null);
     });
 
@@ -29,8 +29,8 @@ describe('UploadForm', () => {
           form.find('form').simulate('submit', event);
         });
 
-        it('calls the handleSubmit CallBack', () => {
-          expect(mockOnUpload).toHaveBeenCalledWith(input);
+        it('calls the `state` file to be not null CallBack', () => {
+          expect(form.state().file).not.toBeNull();
         });
 
     });

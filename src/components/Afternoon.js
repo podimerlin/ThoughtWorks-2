@@ -9,7 +9,8 @@ constructor(props) {
   }
 
 
-  render() {    
+  render() {
+    this.spendTime = 240;    
     if (this.props.talks.length === 0) {
       return (
         <div>
